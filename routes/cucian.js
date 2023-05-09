@@ -12,7 +12,7 @@ router.get('/aktif',async (req, res) => {
     where: {
         [Op.and] : [
             {nik : nik},
-            {status : 'wash'}
+            {status : 'aktif'}
         ]
         }
 })
@@ -59,7 +59,7 @@ router.post('/searchAktif', async(req, res) => {
                                 [Op.like]: `%${cari}%`
                             }
                         },
-                        {status : 'wash'}
+                        {status : 'aktif'}
                     ]
                 }
     })
@@ -137,7 +137,7 @@ router.put('/done', async(req, res) => {
     const id = req.query.id
   
     const cucian = await ModelCucian.update({
-        status:'wash'
+        status:'aktif'
     }, 
     { where: { id : id }})    
     
